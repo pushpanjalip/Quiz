@@ -11,4 +11,18 @@ form.addEventListener('submit', e => {
       score += 50;
     }
   });
+  // show results
+  scrollTo(0, 0);
+  // animate score
+  let output = 0;
+  const timer = setInterval(() => {
+    result.querySelector('span').textContent = `${output}%`;
+    if (output === score) {
+      clearInterval(timer);
+    } else {
+      output++;
+    }
+  }, 10);
+
+  result.classList.remove('d-none');
 });
